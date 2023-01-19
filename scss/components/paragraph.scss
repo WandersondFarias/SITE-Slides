@@ -1,0 +1,56 @@
+.info-content {
+    display: block;
+    width: 66%;
+    z-index: 2;
+    .testimonial {
+        width: 90%;
+        .info-paragraph {
+            width: 100%;
+            font-family: "Inter", sans-serif;
+            color: hsl(240, 38%, 20%);
+            font-size: clamp(1rem, 3vw, 2rem);
+            font-weight: 300;
+            transform: translateY(8%) translateX(-1%);
+            line-height: 1.4;
+        }
+        h1, h2 {
+            font-family: "Inter", sans-serif;
+            color: hsl(240, 38%, 20%);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-top: 3em;
+            span {
+                color: hsl(240, 18%, 77%);
+            }
+        }
+        &.appear {
+            display: block;
+            animation: appearParagraph 500ms ease-in forwards;
+        }
+        &.disappear {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .info-content {
+        width: 95%;
+        margin: auto;
+        margin-bottom: 5em;
+        .testimonial {
+            width: 95%;
+            margin: auto;
+            margin-top: 7em;
+            position: relative;
+            .info-paragraph {
+                text-align: center;
+                font-size: 1.1rem;
+            }
+            h1, h2 {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    }
+}

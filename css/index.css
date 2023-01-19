@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
+body {
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 95%;
+  max-width: 1100px;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.quotes, .curves, .pattern_bg {
+  position: absolute;
+}
+
+.quotes {
+  left: 5.6em;
+  top: -0.8em;
+}
+
+.curves {
+  bottom: 0;
+  left: 0;
+}
+
+.pattern_bg {
+  right: -6em;
+  bottom: -8.2em;
+  z-index: -2;
+}
+
+footer {
+  width: 100%;
+}
+
+footer img {
+  width: 100%;
+  max-width: 500px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: inherit;
+    transform: inherit;
+    flex-flow: column-reverse;
+    overflow: hidden;
+  }
+
+  .pattern_bg {
+    width: 100%;
+    top: 0em;
+    left: 0;
+    max-width: 800px;
+  }
+
+  .quotes {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+    max-width: 100px;
+    width: 20%;
+    position: absolute;
+    left: 35%;
+    top: -1em;
+  }
+}
+@keyframes nextImg {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+@keyframes prevImg {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes appear {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes disappear {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+@keyframes appearParagraph {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 155.7%;
+  position: absolute;
+  right: -0.5em;
+  top: -7.2em;
+}
+.gallery-content .gallery__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.gallery-content .gallery__img img {
+  width: 100%;
+  position: absolute;
+  transition: 1s ease-out;
+  transform-origin: right;
+  border-radius: 8px;
+  box-shadow: 10px 60px 100px -50px rgba(79, 68, 68, 0.268);
+}
+.gallery-content .gallery__img img.active-prev {
+  animation: prevImg 1s ease-in forwards;
+}
+.gallery-content .gallery__img img.active-next {
+  animation: nextImg 1s ease-in forwards;
+}
+.gallery-content .gallery__img img.appear {
+  animation: appear 1s ease-in forwards;
+}
+.gallery-content .gallery__img img.disappear {
+  animation: disappear 1s ease-in forwards;
+}
+.gallery-content .gallery__btn {
+  display: flex;
+  gap: 2em;
+  margin: auto;
+  position: absolute;
+  top: 32.5em;
+  left: 4em;
+  background-color: white;
+  border-radius: 150px;
+  padding: 1em 1.3em;
+  box-shadow: 5px 10px 15px 15px rgba(177, 161, 161, 0.323);
+}
+.gallery-content .gallery__btn button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.gallery-content .gallery__btn button:active {
+  transform: scale(0.8);
+}
+
+@media (max-width: 1000px) {
+  .gallery-content, .gallery__btn {
+    position: inherit;
+  }
+
+  .gallery-content {
+    width: 90%;
+    margin: auto;
+    margin-top: 5em;
+  }
+  .gallery-content .gallery__img {
+    width: 90%;
+    margin: auto;
+    z-index: -1;
+  }
+  .gallery-content .gallery__btn {
+    position: inherit;
+    margin-top: 80%;
+  }
+}
+.info-content {
+  display: block;
+  width: 66%;
+  z-index: 2;
+}
+.info-content .testimonial {
+  width: 90%;
+}
+.info-content .testimonial .info-paragraph {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  color: #202046;
+  font-size: clamp(1rem, 3vw, 2rem);
+  font-weight: 300;
+  transform: translateY(8%) translateX(-1%);
+  line-height: 1.4;
+}
+.info-content .testimonial h1, .info-content .testimonial h2 {
+  font-family: "Inter", sans-serif;
+  color: #202046;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-top: 3em;
+}
+.info-content .testimonial h1 span, .info-content .testimonial h2 span {
+  color: #babacf;
+}
+.info-content .testimonial.appear {
+  display: block;
+  animation: appearParagraph 500ms ease-in forwards;
+}
+.info-content .testimonial.disappear {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .info-content {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 5em;
+  }
+  .info-content .testimonial {
+    width: 95%;
+    margin: auto;
+    margin-top: 7em;
+    position: relative;
+  }
+  .info-content .testimonial .info-paragraph {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  .info-content .testimonial h1, .info-content .testimonial h2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
